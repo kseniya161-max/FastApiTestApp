@@ -13,6 +13,7 @@ class Operator(Base):
     weight = Column(Integer, default=1)
 
     leads = relationship("Lead", back_populates="operator")
+    source_weights = relationship("SourceWeight", back_populates="operator")
 
 
 class Lead(Base):
