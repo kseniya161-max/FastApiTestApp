@@ -53,7 +53,3 @@ class SourceWeight(Base):
 
     source = relationship("Source", back_populates="operator_weights")
     operator = relationship("Operator", back_populates="source_weights")
-
-
-
-
