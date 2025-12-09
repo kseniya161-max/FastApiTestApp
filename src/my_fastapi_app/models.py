@@ -21,6 +21,7 @@ class Lead(Base):
     external_id = Column(String, unique=True, index=True)
     operator_id = Column(Integer, ForeignKey("operators.id"))
     operator = relationship("Operator", back_populates="leads")
+    contacts = relationship("Contact", back_populates="lead")
 
 
 class Source(Base):
