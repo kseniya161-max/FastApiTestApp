@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Boolean, String
+from sqlalchemy import Column, Integer, Boolean, String, ForeignKey
 from sqlalchemy.orm import relationship
 
 from src.my_fastapi_app.database import Base
@@ -18,5 +18,7 @@ class Operator(Base):
 class Lead(Base):
     id = Column(Integer, primary_key=True, index=True)
     external_id = Column(String, unique=True, index=True)
+    operator_id = Column(Integer, ForeignKey("operators.id"))
+    operator = relationship("Operator", back_populates="leads")
 
 
