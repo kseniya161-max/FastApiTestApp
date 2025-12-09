@@ -10,3 +10,6 @@ DATABASE_URL = "sqlite:///./database.db"
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
+
+from .models import Operator, Lead, Source, Contact, SourceWeight
+Base.metadata.create_all(bind=engine)
